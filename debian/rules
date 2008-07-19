@@ -1,0 +1,54 @@
+#!/usr/bin/make -f
+
+DESTDIR=$(CURDIR)/debian/rhinote
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	touch configure-stamp
+
+build: build-stamp
+
+build-stamp: configure-stamp 
+	dh_testdir
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp configure-stamp
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_install
+	# Rename Rhinote binary
+	mv "$(DESTDIR)/usr/bin/rhinote.py" "$(DESTDIR)/usr/bin/rhinote"
+	# Rename icons
+	mv "$(DESTDIR)/usr/share/icons/hicolor/32x32/apps/rhinote_32x32.png" \
+	   "$(DESTDIR)/usr/share/icons/hicolor/32x32/apps/rhinote.png"
+	mv "$(DESTDIR)/usr/share/icons/hicolor/48x48/apps/rhinote_48x48.png" \
+	   "$(DESTDIR)/usr/share/icons/hicolor/48x48/apps/rhinote.png"
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installman "$(CURDIR)/debian/rhinote.1"
+	dh_installmenu
+	dh_desktop
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: build install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure

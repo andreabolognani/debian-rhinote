@@ -1,0 +1,5 @@
+rhinote.py usr/bin
+debian/rhinote.desktop usr/share/applications
+debian/rhinote.xpm usr/share/pixmaps
+icons/rhinote_32x32.png usr/share/icons/hicolor/32x32/apps
+icons/rhinote_48x48.png usr/share/icons/hicolor/48x48/apps

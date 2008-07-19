@@ -1,0 +1,35 @@
+rhinote (0.7.2-1) unstable; urgency=low
+
+  * New upstream version
+  * Install upstream-provided PNG icons
+  * Replaced cupsys-bsd with cups-bsd in Depends
+  * Updated watch file to reflect hosting change
+  * Bumped Standards-Version to 3.8.0 (no changes needed)
+
+ -- Andrea Bolognani <eof@kiyuko.org>  Sat, 19 Jul 2008 08:47:59 +0200
+
+rhinote (0.7.1-1) unstable; urgency=low
+
+  * New upstream version
+  * Fixed watch file to match the change in upstream's versioning scheme
+
+ -- Andrea Bolognani <eof@kiyuko.org>  Mon, 31 Mar 2008 10:07:24 +0200
+
+rhinote (0.7.0-2) unstable; urgency=low
+
+  * Updated to new menu policy
+  * Bumped Standards-Version to 3.7.3 (changes made to conform with the new
+    menu policy)
+  * Fixed the desktop file to use the correct categories
+  * Added watch file
+  * Moved Homepage to the proper control field
+  * Changed debian/copyright to comply with the proposed machine-interpretable
+    copyright format (with some modifications)
+
+ -- Andrea Bolognani <eof@kiyuko.org>  Mon, 18 Feb 2008 12:39:35 +0100
+
+rhinote (0.7.0-1) unstable; urgency=low
+
+  * Initial release. Closes: #359278
+
+ -- Andrea Bolognani <eof@kiyuko.org>  Fri, 24 Mar 2006 20:21:32 +0100

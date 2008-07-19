@@ -1,0 +1,3 @@
+version=3
+http://rhinote.tuxfamily.org/download.html \
+(?:.*)/rhinote-download.php\?version=([\d\.]+)

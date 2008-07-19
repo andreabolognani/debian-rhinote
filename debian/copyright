@@ -1,0 +1,21 @@
+Upstream-Author: Marv Boyes <greyspace@tuxfamily.org>
+Downloaded-From: http://rhinote.tuxfamily.org/
+
+Debianized-By: Andrea Bolognani <eof@kiyuko.org>
+Debianization-Date: Fri, 24 Mar 2006 20:21:32 +0100
+
+Files: *
+Copyright: © 2006 Marv Boyes <greyspace@tuxfamily.org>
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by the
+ Free Software Foundation; either version 2, or (at your option) any
+ later version.
+
+Files: debian/*
+Copyright: © 2006-2008 Andrea Bolognani <eof@kiyuko.org>
+License: GPL-2+
+ The Debian packaging is under the same license as the package itself.
+
+On Debian GNU/Linux systems, the complete text of the GNU General Public
+License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
