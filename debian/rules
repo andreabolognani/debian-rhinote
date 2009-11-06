@@ -40,7 +40,6 @@ binary-indep: build install
 	dh_installdocs
 	dh_installman "$(CURDIR)/debian/rhinote.1"
 	dh_installmenu
-	dh_desktop
 	dh_compress
 	dh_fixperms
 	dh_installdeb
