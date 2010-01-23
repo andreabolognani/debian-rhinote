@@ -1,5 +1,5 @@
 ?package(rhinote):needs="X11" \
-    section="Applications/Editors" \
-    title="Rhinote" \
-    icon="/usr/share/pixmaps/rhinote.xpm" \
-    command="/usr/bin/rhinote"
+                  section="Applications/Editors" \
+                  title="Rhinote" \
+                  icon="/usr/share/pixmaps/rhinote.xpm" \
+                  command="/usr/bin/rhinote"
