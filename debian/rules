@@ -3,10 +3,9 @@
 DESTDIR=$(CURDIR)/debian/rhinote
 
 build: build-stamp
-
 build-stamp:
 	dh_testdir
-	touch build-stamp
+	touch $@
 
 clean:
 	dh_testdir
@@ -14,14 +13,15 @@ clean:
 	rm -f build-stamp
 	dh_clean 
 
+binary: binary-indep binary-arch
+binary-arch: build
 binary-indep: build
 	dh_testdir
 	dh_testroot
 	dh_prep
 	dh_install
-	# Rename Rhinote binary
-	mv "$(DESTDIR)/usr/bin/rhinote.py" "$(DESTDIR)/usr/bin/rhinote"
-	# Rename icons
+	mv "$(DESTDIR)/usr/bin/rhinote.py" \
+	   "$(DESTDIR)/usr/bin/rhinote"
 	mv "$(DESTDIR)/usr/share/icons/hicolor/32x32/apps/rhinote_32x32.png" \
 	   "$(DESTDIR)/usr/share/icons/hicolor/32x32/apps/rhinote.png"
 	mv "$(DESTDIR)/usr/share/icons/hicolor/48x48/apps/rhinote_48x48.png" \
@@ -37,7 +37,4 @@ binary-indep: build
 	dh_md5sums
 	dh_builddeb
 
-binary-arch: build
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary
+.PHONY: build clean binary binary-indep binary-arch
