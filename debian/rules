@@ -28,7 +28,7 @@ binary-indep: build
 	   "$(DESTDIR)/usr/share/icons/hicolor/48x48/apps/rhinote.png"
 	dh_installchangelogs 
 	dh_installdocs
-	dh_installman "$(CURDIR)/debian/rhinote.1"
+	dh_installman
 	dh_installmenu
 	dh_compress
 	dh_fixperms
