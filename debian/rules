@@ -2,7 +2,10 @@
 
 DESTDIR=$(CURDIR)/debian/rhinote
 
-build: build-stamp
+build: build-indep build-stamp
+build-indep:
+	dh_testdir
+	pandoc -s -w man -o debian/rhinote.1 debian/rhinote.1.text
 build-stamp:
 	dh_testdir
 	touch $@
@@ -37,4 +40,4 @@ binary-indep: build
 	dh_md5sums
 	dh_builddeb
 
-.PHONY: build clean binary binary-indep binary-arch
+.PHONY: build build-indep clean binary binary-indep binary-arch
