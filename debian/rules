@@ -2,14 +2,9 @@
 
 DESTDIR=$(CURDIR)/debian/rhinote
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	touch configure-stamp
-
 build: build-stamp
 
-build-stamp: configure-stamp 
+build-stamp:
 	dh_testdir
 	touch build-stamp
 
@@ -50,4 +45,4 @@ binary-indep: build install
 binary-arch: build install
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+.PHONY: build clean binary-indep binary-arch binary install
