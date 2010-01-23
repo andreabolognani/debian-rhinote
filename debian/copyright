@@ -1,21 +1,44 @@
-Upstream-Author: Marv Boyes <greyspace@tuxfamily.org>
-Downloaded-From: http://rhinote.tuxfamily.org/
-
-Debianized-By: Andrea Bolognani <eof@kiyuko.org>
-Debianization-Date: Fri, 24 Mar 2006 20:21:32 +0100
+Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
+Name: Rhinote
+Maintainer: Marv Boyes <greyspace@tuxfamily.org>
+Source: http://rhinote.tuxfamily.org/
 
 Files: *
-Copyright: © 2006 Marv Boyes <greyspace@tuxfamily.org>
+Copyright: 2006, Marv Boyes <greyspace@tuxfamily.org>
 License: GPL-2+
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by the
  Free Software Foundation; either version 2, or (at your option) any
  later version.
+ .
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 2 can be found in the file `/usr/share/common-licenses/GPL-2'.
 
 Files: debian/*
-Copyright: © 2006-2008 Andrea Bolognani <eof@kiyuko.org>
+Copyright: 2006-2010, Andrea Bolognani <eof@kiyuko.org>
 License: GPL-2+
- The Debian packaging is under the same license as the package itself.
-
-On Debian GNU/Linux systems, the complete text of the GNU General Public
-License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by the
+ Free Software Foundation; either version 2, or (at your option) any
+ later version.
+ .
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation,
+ Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ .
+ On Debian systems, the full text of the GNU General Public License
+ version 2 can be found in the file `/usr/share/common-licenses/GPL-2'.
