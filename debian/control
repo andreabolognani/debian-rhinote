@@ -1,6 +1,6 @@
 Source: rhinote
 Section: x11
-Priority: optional
+Priority: extra
 Maintainer: Andrea Bolognani <eof@kiyuko.org>
 Build-Depends: debhelper (>= 7), pandoc
 Standards-Version: 3.8.3
