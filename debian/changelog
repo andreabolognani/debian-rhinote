@@ -1,3 +1,9 @@
+rhinote (0.7.2-2) unstable; urgency=low
+
+  * Register HTML documentation with doc-base.
+
+ -- Andrea Bolognani <eof@kiyuko.org>  Wed, 10 Feb 2010 12:41:11 +0100
+
 rhinote (0.7.2-1) unstable; urgency=low
 
   * New upstream version
