@@ -6,9 +6,9 @@ rhinote (0.7.4-1) unstable; urgency=low
   * Rewrite man page in Markdown; add pandoc to Build-Depends.
   * Drop priority to extra.
   * Move to debhelper v7.
-  * Bump Standards-Version to 3.8.4 (no changes needed).
+  * Bump Standards-Version to 3.9.0 (no changes needed).
 
- -- Andrea Bolognani <eof@kiyuko.org>  Thu, 22 Apr 2010 12:51:44 +0200
+ -- Andrea Bolognani <andrea@lagann>  Wed, 21 Jul 2010 19:16:39 +0200
 
 rhinote (0.7.2-1) unstable; urgency=low
 
