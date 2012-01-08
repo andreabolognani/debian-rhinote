@@ -1,7 +1,7 @@
 rhinote (0.7.4-1) unstable; urgency=low
 
   * New upstream version.
-  * Switch to source format 3.0(quilt).
+  * Switch to source format 3.0 (quilt).
   * Register HTML documentation with doc-base.
   * Rewrite man page in Markdown; add pandoc to Build-Depends.
   * Drop priority to extra.
