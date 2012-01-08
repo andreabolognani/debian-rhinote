@@ -1,34 +1,30 @@
 #!/usr/bin/make -f
 
-DESTDIR=$(CURDIR)/debian/rhinote
+DESTDIR="$(CURDIR)/debian/rhinote"
+BINDIR="$(DESTDIR)/usr/bin"
+ICONDIR="$(DESTDIR)/usr/share/icons/hicolor"
 
-build: build-indep build-stamp
-build-indep:
+build: build-arch build-indep
+build-arch:
+build-indep: build-indep-stamp
+build-indep-stamp:
 	dh_testdir
-	pandoc -s -w man -o debian/rhinote.1 debian/rhinote.1.text
-build-stamp:
-	dh_testdir
+	pandoc -s -w man -o rhinote.1 debian/rhinote.1.text
 	touch $@
 
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp
-	dh_clean 
-
-binary: binary-indep binary-arch
-binary-arch: build
-binary-indep: build
+binary: binary-arch binary-indep
+binary-arch: build-arch
+binary-indep: build-indep
 	dh_testdir
 	dh_testroot
 	dh_prep
 	dh_install
-	mv "$(DESTDIR)/usr/bin/rhinote.py" \
-	   "$(DESTDIR)/usr/bin/rhinote"
-	mv "$(DESTDIR)/usr/share/icons/hicolor/32x32/apps/rhinote_32x32.png" \
-	   "$(DESTDIR)/usr/share/icons/hicolor/32x32/apps/rhinote.png"
-	mv "$(DESTDIR)/usr/share/icons/hicolor/48x48/apps/rhinote_48x48.png" \
-	   "$(DESTDIR)/usr/share/icons/hicolor/48x48/apps/rhinote.png"
+	mv "$(BINDIR)/rhinote.py" \
+	   "$(BINDIR)/rhinote"
+	mv "$(ICONDIR)/32x32/apps/rhinote_32x32.png" \
+	   "$(ICONDIR)/32x32/apps/rhinote.png"
+	mv "$(ICONDIR)/48x48/apps/rhinote_48x48.png" \
+	   "$(ICONDIR)/48x48/apps/rhinote.png"
 	dh_installchangelogs 
 	dh_installdocs
 	dh_installman
@@ -40,4 +36,10 @@ binary-indep: build
 	dh_md5sums
 	dh_builddeb
 
-.PHONY: build build-indep clean binary binary-indep binary-arch
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-indep-stamp
+	dh_clean
+
+.PHONY: build build-arch build-indep binary binary-arch binary-indep clean
