@@ -2,8 +2,10 @@ rhinote (0.7.4-2) unstable; urgency=low
 
   * 001-simplify-imports.diff:
     - improve the way modules are imported.
+  * 002-use-secure-printfile.diff:
+    - avoid potential symlink attacks and cluttering the user's home.
 
- -- Andrea Bolognani <eof@kiyuko.org>  Sun, 08 Jan 2012 11:46:39 +0100
+ -- Andrea Bolognani <eof@kiyuko.org>  Mon, 30 Jan 2012 17:49:49 +0100
 
 rhinote (0.7.4-1) unstable; urgency=low
 

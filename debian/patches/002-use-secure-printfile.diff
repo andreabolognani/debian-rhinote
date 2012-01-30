@@ -1,0 +1,45 @@
+Description: Use secure temp file for printing
+ The contents of the current note have to be saved on a temp file
+ for printing. Instead of using a well-defined file in the user's
+ home directory, create a new temp file each time, and remove it
+ after printing.
+Author: Andrea Bolognani <eof@kiyuko.org>
+Last-Updated: 2012-01-30
+Index: rhinote.git/rhinote.py
+===================================================================
+--- rhinote.git.orig/rhinote.py	2012-01-30 17:29:12.419650342 +0100
++++ rhinote.git/rhinote.py	2012-01-30 17:45:22.957135415 +0100
+@@ -24,6 +24,7 @@
+ import Tkinter
+ import tkFileDialog, tkMessageBox
+ import os
++import tempfile
+ 
+ # the root window:
+ def Rhinote():
+@@ -80,12 +81,14 @@
+         Rhinote()
+ 
+     def printfile(self, whatever = None):
+-        f = open(self.printfilename, 'w')
++        # Use a secure temp file for printing
++        f = tempfile.NamedTemporaryFile(prefix = 'Rhinoteprintfile-', delete = False)
+         f.write(self.get('1.0', 'end'))
+-        f.close
++        f.close()
+         # 'enscript' formats the text; lpr sends it to the default printer;
+         # enscript's -B option suppresses page headers.
+-        os.system('enscript -B --word-wrap $HOME/.Rhinoteprintfile > lpr &')
++        os.system('enscript -B --word-wrap %s > lpr &' % f.name)
++        os.unlink(f.name)
+ 
+     def help(self, whatever = None):
+         tkMessageBox.showinfo('Rhinote Help', message = '''
+@@ -127,7 +130,6 @@
+         self.bind('<Control-H>', self.help)
+         self.master = master
+         self.filename = ''
+-        self.printfilename = os.environ['HOME']+'/.Rhinoteprintfile'
+         self._filetypes = [
+         ('Text/ASCII', '*.txt'),
+         ('Rhinote files', '*.rhi'),
