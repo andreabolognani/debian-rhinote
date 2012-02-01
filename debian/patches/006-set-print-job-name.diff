@@ -7,16 +7,17 @@ Author: Andrea Bolognani <eof@kiyuko.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-02-01 12:31:43.427351034 +0100
-+++ rhinote.git/rhinote.py	2012-02-01 12:33:27.560871796 +0100
-@@ -180,8 +180,10 @@
+--- rhinote.git.orig/rhinote.py	2012-02-01 15:36:53.946647203 +0100
++++ rhinote.git/rhinote.py	2012-02-01 15:43:49.311486269 +0100
+@@ -180,9 +180,10 @@
              ]
          # Find print and format commands
          self.printcommand = self.which('lp')
 +        self.printargs = ['-t', 'Rhinote file']
          if not self.printcommand:
              self.printcommand = self.which('lpr')
+-        self.printargs = []
 +            self.printargs = ['-T', 'Rhinote file']
-         self.printargs = []
          self.formatcommand = self.which('enscript')
          self.formatargs = ['-B', '--word-wrap', '-o', '-']
+ 
