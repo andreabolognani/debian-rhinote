@@ -1,0 +1,22 @@
+Description: Set print job name
+ When printing from standard input, the job name defaults to "stdin".
+ .
+ This patch adds some parameters to the lp/lpr call to provide the
+ user with a more descriptive name.
+Author: Andrea Bolognani <eof@kiyuko.org>
+Last-Update: 2012-02-01
+Index: rhinote.git/rhinote.py
+===================================================================
+--- rhinote.git.orig/rhinote.py	2012-02-01 12:31:43.427351034 +0100
++++ rhinote.git/rhinote.py	2012-02-01 12:33:27.560871796 +0100
+@@ -180,8 +180,10 @@
+             ]
+         # Find print and format commands
+         self.printcommand = self.which('lp')
++        self.printargs = ['-t', 'Rhinote file']
+         if not self.printcommand:
+             self.printcommand = self.which('lpr')
++            self.printargs = ['-T', 'Rhinote file']
+         self.printargs = []
+         self.formatcommand = self.which('enscript')
+         self.formatargs = ['-B', '--word-wrap', '-o', '-']
