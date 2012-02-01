@@ -7,9 +7,9 @@ Author: Andrea Bolognani <eof@kiyuko.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-02-01 15:36:53.946647203 +0100
-+++ rhinote.git/rhinote.py	2012-02-01 15:43:49.311486269 +0100
-@@ -180,9 +180,10 @@
+--- rhinote.git.orig/rhinote.py	2012-02-01 16:12:56.452244186 +0100
++++ rhinote.git/rhinote.py	2012-02-01 16:13:02.548318787 +0100
+@@ -178,9 +178,10 @@
              ]
          # Find print and format commands
          self.printcommand = self.which('lp')

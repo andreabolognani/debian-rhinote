@@ -2,13 +2,13 @@ Description: Call external commands via Popen
  Use the subprocess.Popen() method instead on relying on the less
  secure os.system() method when calling external commands.
  .
- Notify the user of the outcome of the printing process as well.
+ Notify the user of printing errors as well.
 Author: Andrea Bolognani <eof@kiyuko.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-02-01 11:39:57.599382422 +0100
-+++ rhinote.git/rhinote.py	2012-02-01 12:13:57.228688446 +0100
+--- rhinote.git.orig/rhinote.py	2012-02-01 16:09:01.233375853 +0100
++++ rhinote.git/rhinote.py	2012-02-01 16:10:04.326143254 +0100
 @@ -25,6 +25,7 @@
  import tkFileDialog, tkMessageBox
  import os
@@ -17,7 +17,7 @@ Index: rhinote.git/rhinote.py
  
  # the root window:
  def Rhinote():
-@@ -91,9 +92,29 @@
+@@ -91,9 +92,27 @@
          f = tempfile.NamedTemporaryFile(prefix = 'Rhinoteprintfile-', delete = False)
          f.write(self.get('1.0', 'end'))
          f.close()
@@ -45,12 +45,10 @@ Index: rhinote.git/rhinote.py
 +        # Notify the user of the outcome of the printing operation
 +        if fp.returncode > 0 or pp.returncode > 0:
 +            tkMessageBox.showerror('Print error', 'Printing failed')
-+        else:
-+            tkMessageBox.showinfo('FYI', 'File Printed')
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -159,7 +180,9 @@
+@@ -159,7 +178,9 @@
              ]
          # Find print and format commands
          self.printcommand = self.which('lpr')
