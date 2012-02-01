@@ -1,0 +1,65 @@
+Description: Make sure external commands are available
+ External commands are not guaranteed to be available on the
+ system, so test for their existence before running them.
+Author: Andrea Bolognani <eof@kiyuko.org>
+Last-Updated: 2012-02-01
+Index: rhinote.git/rhinote.py
+===================================================================
+--- rhinote.git.orig/rhinote.py	2012-01-30 18:03:46.679582502 +0100
++++ rhinote.git/rhinote.py	2012-01-31 20:01:00.235029574 +0100
+@@ -81,14 +81,19 @@
+         Rhinote()
+ 
+     def printfile(self, whatever = None):
++        if not self.printcommand:
++            tkMessageBox.showerror('Print error', 'Print command (lpr) not found')
++            return
++        if not self.formatcommand:
++            tkMessageBox.showerror('Print error', 'Format command (enscript) not found')
++            return
+         # Use a secure temp file for printing
+         f = tempfile.NamedTemporaryFile(prefix = 'Rhinoteprintfile-', delete = False)
+         f.write(self.get('1.0', 'end'))
+         f.close()
+         # 'enscript' formats the text; lpr sends it to the default printer;
+         # enscript's -B option suppresses page headers.
+-        os.system('enscript -B --word-wrap %s > lpr &' % f.name)
+-        os.unlink(f.name)
++        os.system('%s -B --word-wrap %s > %s &' % (self.formatcommand, f.name, self.printcommand))
+ 
+     def help(self, whatever = None):
+         tkMessageBox.showinfo('Rhinote Help', message = '''
+@@ -114,6 +119,23 @@
+ http://rhinote.tuxfamily.org
+ ''')
+ 
++    def which(self, cmd):
++        # Abort immediately if PATH is not set
++        path = os.getenv('PATH')
++        if not path:
++            return None
++        # Look in all directories listed in PATH
++        dirs = path.split(os.pathsep)
++        path = None
++        for d in dirs:
++            f = os.path.join(d, cmd)
++            # f must be an executable file
++            if os.path.isfile(f) and os.access(f, os.X_OK):
++                # Stop after the first success
++                path = f
++                break
++        return path
++
+     def __init__(self, master, **kw):
+         Tkinter.Text.__init__(self, master, **kw)
+         self.bind('<Control-n>', self.new_window)
+@@ -135,6 +157,9 @@
+         ('Rhinote files', '*.rhi'),
+             ('All files', '*'),
+             ]
++        # Find print and format commands
++        self.printcommand = self.which('lpr')
++        self.formatcommand = self.which('enscript')
+ 
+ # make it so:
+ if __name__ == '__main__':
