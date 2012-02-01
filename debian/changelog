@@ -14,6 +14,7 @@ rhinote (0.7.4-2) unstable; urgency=low
     - provide a descriptive name for the print job.
   * 007-set-class-name.diff:
     - set application name for use by window managers.
+  * Simplify Depends: to cups-client | lpr.
 
  -- Andrea Bolognani <eof@kiyuko.org>  Wed, 01 Feb 2012 16:23:11 +0100
 
