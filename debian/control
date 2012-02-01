@@ -1,6 +1,6 @@
 Source: rhinote
 Section: x11
-Priority: extra
+Priority: optional
 Maintainer: Andrea Bolognani <eof@kiyuko.org>
 Build-Depends: debhelper (>= 7), pandoc
 Standards-Version: 3.9.2
@@ -10,7 +10,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/rhinote.git;a=summ
 
 Package: rhinote
 Architecture: all
-Depends: python, python-tk, enscript, cups-bsd | lpr | lprng, ${misc:Depends}
+Depends: python, python-tk, enscript, cups-client | lpr, ${misc:Depends}
 Description: virtual sticky-notes for your desktop
  Rhinote is a small program that provides virtual sticky-notes. It's handy
  for jotting down quick notes or holding copied text that you plan to paste
