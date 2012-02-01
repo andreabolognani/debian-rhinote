@@ -8,8 +8,10 @@ rhinote (0.7.4-2) unstable; urgency=low
     - ensure external commands are available before calling them.
   * 004-use-popen.diff:
     - replace os.system() with the more secure subprocess.Popen().
+  * 005-support-lp.diff:
+    - add support for the lp command in addition to lpr.
 
- -- Andrea Bolognani <eof@kiyuko.org>  Wed, 01 Feb 2012 12:18:58 +0100
+ -- Andrea Bolognani <eof@kiyuko.org>  Wed, 01 Feb 2012 12:29:30 +0100
 
 rhinote (0.7.4-1) unstable; urgency=low
 

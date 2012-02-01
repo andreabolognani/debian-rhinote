@@ -1,0 +1,29 @@
+Description: Support lp along with lpr for printing
+ The original printing implementation only supports the lpr
+ command; this patch add support for printing with lp as well.
+Author: Andrea Bolognani <eof@kiyuko.org>
+Last-Update: 2012-02-01
+Index: rhinote.git/rhinote.py
+===================================================================
+--- rhinote.git.orig/rhinote.py	2012-02-01 12:22:43.199669738 +0100
++++ rhinote.git/rhinote.py	2012-02-01 12:29:23.797329600 +0100
+@@ -83,7 +83,7 @@
+ 
+     def printfile(self, whatever = None):
+         if not self.printcommand:
+-            tkMessageBox.showerror('Print error', 'Print command (lpr) not found')
++            tkMessageBox.showerror('Print error', 'Print command (lp or lpr) not found')
+             return
+         if not self.formatcommand:
+             tkMessageBox.showerror('Print error', 'Format command (enscript) not found')
+@@ -179,7 +179,9 @@
+             ('All files', '*'),
+             ]
+         # Find print and format commands
+-        self.printcommand = self.which('lpr')
++        self.printcommand = self.which('lp')
++        if not self.printcommand:
++            self.printcommand = self.which('lpr')
+         self.printargs = []
+         self.formatcommand = self.which('enscript')
+         self.formatargs = ['-B', '--word-wrap', '-o', '-']
