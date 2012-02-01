@@ -2,7 +2,7 @@ Description: Make sure external commands are available
  External commands are not guaranteed to be available on the
  system, so test for their existence before running them.
 Author: Andrea Bolognani <eof@kiyuko.org>
-Last-Updated: 2012-02-01
+Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
 --- rhinote.git.orig/rhinote.py	2012-01-30 18:03:46.679582502 +0100
