@@ -1,3 +1,4 @@
 001-simplify-imports.diff
 002-use-secure-printfile.diff
 003-test-for-external-commands.diff
+004-use-popen.diff

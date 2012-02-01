@@ -6,8 +6,10 @@ rhinote (0.7.4-2) unstable; urgency=low
     - avoid potential symlink attacks and cluttering the user's home.
   * 003-test-for-external-commands.diff:
     - ensure external commands are available before calling them.
+  * 004-use-popen.diff:
+    - replace os.system() with the more secure subprocess.Popen().
 
- -- Andrea Bolognani <eof@kiyuko.org>  Wed, 01 Feb 2012 11:32:16 +0100
+ -- Andrea Bolognani <eof@kiyuko.org>  Wed, 01 Feb 2012 12:18:58 +0100
 
 rhinote (0.7.4-1) unstable; urgency=low
 
