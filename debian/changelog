@@ -12,8 +12,10 @@ rhinote (0.7.4-2) unstable; urgency=low
     - add support for the lp command in addition to lpr.
   * 006-set-print-job-name.diff:
     - provide a descriptive name for the print job.
+  * 007-set-class-name.diff:
+    - set application name for use by window managers.
 
- -- Andrea Bolognani <eof@kiyuko.org>  Wed, 01 Feb 2012 12:35:48 +0100
+ -- Andrea Bolognani <eof@kiyuko.org>  Wed, 01 Feb 2012 16:23:11 +0100
 
 rhinote (0.7.4-1) unstable; urgency=low
 

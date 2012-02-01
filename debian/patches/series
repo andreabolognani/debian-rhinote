@@ -4,3 +4,4 @@
 004-use-popen.diff
 005-support-lp.diff
 006-set-print-job-name.diff
+007-set-class-name.diff

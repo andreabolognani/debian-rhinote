@@ -1,0 +1,20 @@
+Description: Set class name
+ The default class name for Tk application is "Tk".
+ .
+ This patch sets it to "Rhinote", so the correct application name
+ is displayed in such places as the GNOME Shell top bar.
+Author: Andrea Bolognani <eof@kiyuko.org>
+Last-Update: 2012-02-01
+Index: rhinote.git/rhinote.py
+===================================================================
+--- rhinote.git.orig/rhinote.py	2012-02-01 16:18:17.807886562 +0100
++++ rhinote.git/rhinote.py	2012-02-01 16:20:32.841318647 +0100
+@@ -29,7 +29,7 @@
+ 
+ # the root window:
+ def Rhinote():
+-    r = Tkinter.Tk()
++    r = Tkinter.Tk(className = 'Rhinote')
+     r.option_add('*font', '{Helvetica} 11')
+     t = TextWidget(r, bg = '#f9f3a9', wrap = 'word', undo = True)
+     t.focus_set()
