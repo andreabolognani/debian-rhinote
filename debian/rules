@@ -42,4 +42,22 @@ clean:
 	rm -f build-indep-stamp
 	dh_clean
 
-.PHONY: build build-arch build-indep binary binary-arch binary-indep clean
+# Rebuild the series file by looking at the contents of the patches directory.
+#
+# Patches with names starting with D (Debian-specific) should be applied
+# after those with names starting with U (to be forwarded upstream).
+rebuild-series:
+	@( \
+		SERIES=debian/patches/series; \
+		echo "# To rebuild this file, use \`debian/rules $@'" \
+			> $${SERIES}; \
+		for patch in debian/patches/U*.diff debian/patches/D*.diff; \
+		do \
+			test -f "$${patch}" || continue; \
+			patch=$$(basename $${patch}); \
+			echo $${patch} \
+				>> $${SERIES}; \
+		done; \
+	)
+
+.PHONY: build build-arch build-indep binary binary-arch binary-indep clean rebuild-series

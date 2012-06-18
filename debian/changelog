@@ -1,18 +1,18 @@
 rhinote (0.7.4-2) unstable; urgency=low
 
-  * 001-simplify-imports.diff:
+  * U01-simplify-imports.diff:
     - improve the way modules are imported.
-  * 002-use-secure-printfile.diff:
+  * U02-use-secure-printfile.diff:
     - avoid potential symlink attacks and cluttering the user's home.
-  * 003-test-for-external-commands.diff:
+  * U03-test-for-external-commands.diff:
     - ensure external commands are available before calling them.
-  * 004-use-popen.diff:
+  * U04-use-popen.diff:
     - replace os.system() with the more secure subprocess.Popen().
-  * 005-support-lp.diff:
+  * U05-support-lp.diff:
     - add support for the lp command in addition to lpr.
-  * 006-set-print-job-name.diff:
+  * U06-set-print-job-name.diff:
     - provide a descriptive name for the print job.
-  * 007-set-class-name.diff:
+  * U07-set-class-name.diff:
     - set application name for use by window managers.
   * Simplify Depends: to cups-client | lpr.
   * Raise priority to optional, as all packages Rhinote depends on are

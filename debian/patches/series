@@ -1,7 +1,8 @@
-001-simplify-imports.diff
-002-use-secure-printfile.diff
-003-test-for-external-commands.diff
-004-use-popen.diff
-005-support-lp.diff
-006-set-print-job-name.diff
-007-set-class-name.diff
+# To rebuild this file, use `debian/rules rebuild-series'
+U01-simplify-imports.diff
+U02-use-secure-printfile.diff
+U03-test-for-external-commands.diff
+U04-use-popen.diff
+U05-support-lp.diff
+U06-set-print-job-name.diff
+U07-set-class-name.diff
