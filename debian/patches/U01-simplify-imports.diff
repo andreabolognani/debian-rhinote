@@ -2,6 +2,7 @@ Description: Simplify imports
  Importing a whole module using a wildcard is frowned upon, and it
  confuses static analysis tools such as pyflakes.
 Author: Andrea Bolognani <eof@kiyuko.org>
+Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-01-30
 Index: rhinote.git/rhinote.py
 ===================================================================

@@ -4,6 +4,7 @@ Description: Set print job name
  This patch adds some parameters to the lp/lpr call to provide the
  user with a more descriptive name.
 Author: Andrea Bolognani <eof@kiyuko.org>
+Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================

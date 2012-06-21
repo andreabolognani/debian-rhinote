@@ -4,6 +4,7 @@ Description: Call external commands via Popen
  .
  Notify the user of printing errors as well.
 Author: Andrea Bolognani <eof@kiyuko.org>
+Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================

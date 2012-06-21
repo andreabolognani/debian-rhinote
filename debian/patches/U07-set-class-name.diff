@@ -4,6 +4,7 @@ Description: Set class name
  This patch sets it to "Rhinote", so the correct application name
  is displayed in such places as the GNOME Shell top bar.
 Author: Andrea Bolognani <eof@kiyuko.org>
+Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================

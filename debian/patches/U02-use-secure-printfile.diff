@@ -4,6 +4,7 @@ Description: Use secure temp file for printing
  home directory, create a new temp file each time, and remove it
  after printing.
 Author: Andrea Bolognani <eof@kiyuko.org>
+Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-01-30
 Index: rhinote.git/rhinote.py
 ===================================================================

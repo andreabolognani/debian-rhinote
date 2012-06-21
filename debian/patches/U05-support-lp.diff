@@ -2,6 +2,7 @@ Description: Support lp along with lpr for printing
  The original printing implementation only supports the lpr
  command; this patch add support for printing with lp as well.
 Author: Andrea Bolognani <eof@kiyuko.org>
+Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
