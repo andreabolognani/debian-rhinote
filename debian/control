@@ -5,8 +5,8 @@ Maintainer: Andrea Bolognani <eof@kiyuko.org>
 Build-Depends: debhelper (>= 7), pandoc
 Standards-Version: 3.9.3
 Homepage: http://rhinote.tuxfamily.org/
-Vcs-Git: git://anonscm.debian.org/git/collab-maint/rhinote.git
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/rhinote.git;a=summary
+Vcs-Git: https://salsa.debian.org/debian/rhinote.git
+Vcs-Browser: https://salsa.debian.org/debian/rhinote
 
 Package: rhinote
 Architecture: all

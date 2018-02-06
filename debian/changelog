@@ -1,3 +1,10 @@
+rhinote (0.7.4-3) unstable; urgency=low
+
+  * Other
+    - Point Vcs-*: to salsa.debian.org
+
+ -- Andrea Bolognani <eof@kiyuko.org>  Tue, 06 Feb 2018 20:03:54 +0100
+
 rhinote (0.7.4-2) unstable; urgency=low
 
   * U01-simplify-imports.diff:
