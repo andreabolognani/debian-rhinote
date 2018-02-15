@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Rhinote
 Upstream-Contact: Marv Boyes <greyspace@tuxfamily.org>
-Source: http://rhinote.tuxfamily.org/
+Source: https://rhinote.tuxfamily.org/
 
 Files: *
 Copyright: 2006-2010, Marv Boyes <greyspace@tuxfamily.org>

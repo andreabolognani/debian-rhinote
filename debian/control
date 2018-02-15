@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 11),
                dh-exec,
                pandoc
 Standards-Version: 3.9.3
-Homepage: http://rhinote.tuxfamily.org/
+Homepage: https://rhinote.tuxfamily.org/
 Vcs-Git: https://salsa.debian.org/debian/rhinote.git
 Vcs-Browser: https://salsa.debian.org/debian/rhinote
 
