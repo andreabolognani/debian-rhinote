@@ -3,6 +3,7 @@ Section: x11
 Priority: optional
 Maintainer: Andrea Bolognani <eof@kiyuko.org>
 Build-Depends: debhelper (>= 11),
+               dh-exec,
                pandoc
 Standards-Version: 3.9.3
 Homepage: http://rhinote.tuxfamily.org/

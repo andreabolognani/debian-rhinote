@@ -1,9 +1,5 @@
 #!/usr/bin/make -f
 
-DESTDIR="$(CURDIR)/debian/rhinote"
-BINDIR="$(DESTDIR)/usr/bin"
-ICONDIR="$(DESTDIR)/usr/share/icons/hicolor"
-
 build: build-arch build-indep
 build-arch:
 build-indep: build-indep-stamp
@@ -19,12 +15,6 @@ binary-indep: build-indep
 	dh_testroot
 	dh_prep
 	dh_install
-	mv "$(BINDIR)/rhinote.py" \
-	   "$(BINDIR)/rhinote"
-	mv "$(ICONDIR)/32x32/apps/rhinote_32x32.png" \
-	   "$(ICONDIR)/32x32/apps/rhinote.png"
-	mv "$(ICONDIR)/48x48/apps/rhinote_48x48.png" \
-	   "$(ICONDIR)/48x48/apps/rhinote.png"
 	dh_installchangelogs 
 	dh_installdocs
 	dh_installman
