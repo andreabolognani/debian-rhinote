@@ -29,6 +29,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-indep-stamp
+	rm -f rhinote.1
 	dh_clean
 
 # Rebuild the series file by looking at the contents of the patches directory.
