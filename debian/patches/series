@@ -1,4 +1,4 @@
-# To rebuild this file, use `debian/rules rebuild-series'
+# To rebuild this file, use `debian/rules rebuild-patches-series'
 U01-simplify-imports.diff
 U02-use-secure-printfile.diff
 U03-test-for-external-commands.diff
