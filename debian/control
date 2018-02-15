@@ -12,7 +12,11 @@ Vcs-Browser: https://salsa.debian.org/debian/rhinote
 
 Package: rhinote
 Architecture: all
-Depends: python, python-tk, enscript, cups-client | lpr, ${misc:Depends}
+Depends: python,
+         python-tk,
+         enscript,
+         cups-client | lpr,
+         ${misc:Depends}
 Description: virtual sticky-notes for your desktop
  Rhinote is a small program that provides virtual sticky-notes. It's handy
  for jotting down quick notes or holding copied text that you plan to paste
