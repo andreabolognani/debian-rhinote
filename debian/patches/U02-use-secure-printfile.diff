@@ -8,8 +8,8 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-01-30
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-01-30 17:29:12.419650342 +0100
-+++ rhinote.git/rhinote.py	2012-01-30 17:45:22.957135415 +0100
+--- rhinote.git.orig/rhinote.py
++++ rhinote.git/rhinote.py
 @@ -24,6 +24,7 @@
  import Tkinter
  import tkFileDialog, tkMessageBox
@@ -18,7 +18,7 @@ Index: rhinote.git/rhinote.py
  
  # the root window:
  def Rhinote():
-@@ -80,12 +81,14 @@
+@@ -80,12 +81,14 @@ class TextWidget(Tkinter.Text):
          Rhinote()
  
      def printfile(self, whatever = None):
@@ -36,7 +36,7 @@ Index: rhinote.git/rhinote.py
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -127,7 +130,6 @@
+@@ -127,7 +130,6 @@ http://rhinote.tuxfamily.org
          self.bind('<Control-H>', self.help)
          self.master = master
          self.filename = ''

@@ -8,9 +8,9 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-02-01 16:18:17.807886562 +0100
-+++ rhinote.git/rhinote.py	2012-02-01 16:20:32.841318647 +0100
-@@ -29,7 +29,7 @@
+--- rhinote.git.orig/rhinote.py
++++ rhinote.git/rhinote.py
+@@ -29,7 +29,7 @@ import subprocess
  
  # the root window:
  def Rhinote():

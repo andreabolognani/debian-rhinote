@@ -8,9 +8,9 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-02-01 16:12:56.452244186 +0100
-+++ rhinote.git/rhinote.py	2012-02-01 16:13:02.548318787 +0100
-@@ -178,9 +178,10 @@
+--- rhinote.git.orig/rhinote.py
++++ rhinote.git/rhinote.py
+@@ -178,9 +178,10 @@ http://rhinote.tuxfamily.org
              ]
          # Find print and format commands
          self.printcommand = self.which('lp')

@@ -6,9 +6,9 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-01-30 18:03:46.679582502 +0100
-+++ rhinote.git/rhinote.py	2012-01-31 20:01:00.235029574 +0100
-@@ -81,14 +81,19 @@
+--- rhinote.git.orig/rhinote.py
++++ rhinote.git/rhinote.py
+@@ -81,14 +81,19 @@ class TextWidget(Tkinter.Text):
          Rhinote()
  
      def printfile(self, whatever = None):
@@ -30,7 +30,7 @@ Index: rhinote.git/rhinote.py
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -114,6 +119,23 @@
+@@ -114,6 +119,23 @@ Free Software distributed under the GNU
  http://rhinote.tuxfamily.org
  ''')
  
@@ -54,7 +54,7 @@ Index: rhinote.git/rhinote.py
      def __init__(self, master, **kw):
          Tkinter.Text.__init__(self, master, **kw)
          self.bind('<Control-n>', self.new_window)
-@@ -135,6 +157,9 @@
+@@ -135,6 +157,9 @@ http://rhinote.tuxfamily.org
          ('Rhinote files', '*.rhi'),
              ('All files', '*'),
              ]

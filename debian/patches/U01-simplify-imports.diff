@@ -6,8 +6,8 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-01-30
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-01-24 12:41:00.166800687 +0100
-+++ rhinote.git/rhinote.py	2012-01-30 17:19:09.139264727 +0100
+--- rhinote.git.orig/rhinote.py
++++ rhinote.git/rhinote.py
 @@ -21,14 +21,13 @@
  # along with this program; if not, write to the Free Software
  # Foundation, Inc., 51 Franklin St., Fifth Floor, Boston, MA  02110-1301 USA
@@ -25,7 +25,7 @@ Index: rhinote.git/rhinote.py
      r.option_add('*font', '{Helvetica} 11')
      t = TextWidget(r, bg = '#f9f3a9', wrap = 'word', undo = True)
      t.focus_set()
-@@ -38,7 +37,7 @@
+@@ -38,7 +37,7 @@ def Rhinote():
      r.mainloop()
  
  # the text widget, and all of its functions:
@@ -34,7 +34,7 @@ Index: rhinote.git/rhinote.py
  
      def save_file(self, whatever = None):
          if (self.filename == ''):
-@@ -86,7 +85,7 @@
+@@ -86,7 +85,7 @@ class TextWidget(Text):
          f.close
          # 'enscript' formats the text; lpr sends it to the default printer;
          # enscript's -B option suppresses page headers.
@@ -43,7 +43,7 @@ Index: rhinote.git/rhinote.py
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -113,7 +112,7 @@
+@@ -113,7 +112,7 @@ http://rhinote.tuxfamily.org
  ''')
  
      def __init__(self, master, **kw):

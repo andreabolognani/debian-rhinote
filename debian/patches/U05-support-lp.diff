@@ -6,9 +6,9 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 Last-Update: 2012-02-01
 Index: rhinote.git/rhinote.py
 ===================================================================
---- rhinote.git.orig/rhinote.py	2012-02-01 16:12:54.460219812 +0100
-+++ rhinote.git/rhinote.py	2012-02-01 16:12:56.452244186 +0100
-@@ -83,7 +83,7 @@
+--- rhinote.git.orig/rhinote.py
++++ rhinote.git/rhinote.py
+@@ -83,7 +83,7 @@ class TextWidget(Tkinter.Text):
  
      def printfile(self, whatever = None):
          if not self.printcommand:
@@ -17,7 +17,7 @@ Index: rhinote.git/rhinote.py
              return
          if not self.formatcommand:
              tkMessageBox.showerror('Print error', 'Format command (enscript) not found')
-@@ -177,7 +177,9 @@
+@@ -177,7 +177,9 @@ http://rhinote.tuxfamily.org
              ('All files', '*'),
              ]
          # Find print and format commands
