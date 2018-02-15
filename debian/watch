@@ -1,3 +1,7 @@
-version=3
+version=4
+opts=\
+downloadurlmangle=s/^http:\/\/(.*)$/https:\/\/$1/,\
+filenamemangle=s/^.*=@ANY_VERSION@$/rhinote-$1.tar.gz/ \
+\
 https://rhinote.tuxfamily.org/download.html \
-(?:.*)/rhinote-download.php\?version=([\d\.]+)
+^.*/rhinote-download\.php\?version=@ANY_VERSION@$
