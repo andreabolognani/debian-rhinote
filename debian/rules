@@ -2,8 +2,8 @@
 
 build: build-arch build-indep
 build-arch:
-build-indep: build-indep-stamp
-build-indep-stamp:
+build-indep: build-stamp
+build-stamp:
 	dh_testdir
 	pandoc -s -w man -o rhinote.1 debian/rhinote.1.text
 	touch $@
@@ -28,7 +28,7 @@ binary-indep: build-indep
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-indep-stamp
+	rm -f build-stamp
 	rm -f rhinote.1
 	dh_clean
 
