@@ -1,6 +1,0 @@
-?package(rhinote):needs="X11" \
-                  section="Applications/Editors" \
-                  title="Rhinote" \
-				  longtitle="Virtual sticky-notes" \
-                  icon="/usr/share/pixmaps/rhinote.xpm" \
-                  command="/usr/bin/rhinote"
