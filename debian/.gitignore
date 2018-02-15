@@ -1,8 +1,1 @@
-rhinote
-files
-*.substvars
-*.debhelper.log
-*.preinst.debhelper
-*.postinst.debhelper
-*.prerm.debhelper
-*.postrm.debhelper
+*.swp
