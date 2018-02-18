@@ -4,6 +4,9 @@ rhinote (0.7.4-3) unstable; urgency=low
     - Switch to compat level 11
     - Use dh-exec for installation
 
+  * autopkgtest
+    - Add smoke test
+
   * Security
     - Use https:// for upstream URLs
 
@@ -14,7 +17,7 @@ rhinote (0.7.4-3) unstable; urgency=low
     - Permit Rules-Requires-Root: no
     - Point Vcs-*: to salsa.debian.org
 
- -- Andrea Bolognani <eof@kiyuko.org>  Sun, 18 Feb 2018 00:31:53 +0100
+ -- Andrea Bolognani <eof@kiyuko.org>  Sun, 18 Feb 2018 19:08:49 +0100
 
 rhinote (0.7.4-2) unstable; urgency=low
 

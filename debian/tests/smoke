@@ -1,0 +1,71 @@
+#!/bin/sh
+
+# Run rhinote under Xvfb and detect its presence using xwininfo
+
+wait_command()
+{
+    local command="$1"
+    local expected_rc="$2"
+
+    local tries=15
+
+    while true
+    do
+        sh -c "$command" 2>&1
+        test "$?" -eq "$expected_rc" && {
+            return 0
+        }
+
+        tries=$(expr "$tries" - 1)
+        test "$tries" -le 0 && {
+            return 1
+        }
+
+        sleep 1
+    done
+}
+
+# Make sure the test environment is sane. Neither Xvbf nor
+# rhinote should be already running, or we would risk killing
+# unrelated processes in the teardown phase
+
+echo '# Validating test environment...'
+wait_command 'pgrep -ax "Xvfb"' 1 || exit 1
+wait_command 'pgrep -afx "python /usr/bin/rhinote"' 1 || exit 1
+
+# Setup
+
+export DISPLAY=:3
+
+echo '# Starting Xvfb...'
+Xvfb $DISPLAY >Xvfb.log 2>&1 &
+wait_command 'pgrep -ax "Xvfb"' 0
+
+echo '# Waiting for Xvfb...'
+wait_command 'xwininfo -root -tree' 0
+
+echo '# Starting rhinote...'
+rhinote >rhinote.log 2>&1 &
+wait_command 'pgrep -afx "python /usr/bin/rhinote"' 0
+
+# Test
+
+echo '# Detecting rhinote...'
+wait_command 'xwininfo -root -tree | grep -i "rhinote"' 0
+rc=$?
+
+# Teardown
+
+echo '# Stopping rhinote...'
+pkill -efx "python /usr/bin/rhinote"
+wait_command 'pgrep -afx "python /usr/bin/rhinote"' 1
+
+echo '# Stopping Xvfb...'
+pkill -ex "Xvfb"
+wait_command 'pgrep -ax "Xvfb"' 1
+
+test "$rc" -eq 0 || {
+    cat Xvfb.log rhinote.log >&2
+}
+
+exit $rc
