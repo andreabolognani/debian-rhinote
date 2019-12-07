@@ -5,15 +5,16 @@ Subject: Call external commands via Popen
 Use the subprocess.Popen() method instead on relying on the less
 secure os.system() method when calling external commands.
 
-Notify the user of printing errors as well.
+This also allows us to stop using an insecure temporary file and
+notify the user if printing failed.
 
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 ---
- rhinote.py | 27 ++++++++++++++++++++++++---
- 1 file changed, 24 insertions(+), 3 deletions(-)
+ rhinote.py | 27 ++++++++++++++++++++-------
+ 1 file changed, 20 insertions(+), 7 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 376cb2c..3934815 100644
+index 376cb2c..7e48c52 100644
 --- a/rhinote.py
 +++ b/rhinote.py
 @@ -25,6 +25,7 @@ import tkinter
@@ -24,38 +25,45 @@ index 376cb2c..3934815 100644
  
  
  # the root window:
-@@ -92,9 +93,27 @@ class TextWidget(tkinter.Text):
-         f = open(self.printfilename, 'w')
-         f.write(self.get('1.0', 'end'))
-         f.close
+@@ -89,12 +90,23 @@ class TextWidget(tkinter.Text):
+         if not self.formatcommand:
+             tkMessageBox.showerror('Print error', 'Format command (enscript) not found')
+             return
+-        f = open(self.printfilename, 'w')
+-        f.write(self.get('1.0', 'end'))
+-        f.close
 -        # 'enscript' formats the text; lpr sends it to the default printer;
 -        # enscript's -B option suppresses page headers.
 -        os.system('%s -B --word-wrap %s > %s &' % (self.formatcommand, self.printfilename, self.printcommand))
 +        # Prepare the format command
 +        formatargv = [self.formatcommand]
 +        formatargv.extend(self.formatargs)
-+        formatargv.append(self.printfilename)
 +        # Prepare the print command
 +        printargv = [self.printcommand]
 +        printargv.extend(self.printargs)
 +        # Spawn both commands, piping the output of the format command
 +        # to the input of the print command
-+        fp = subprocess.Popen(formatargv, stdout=subprocess.PIPE)
-+        pp = subprocess.Popen(printargv, stdin=fp.stdout, stdout=subprocess.PIPE)
-+        # Required according to http://docs.python.org/library/subprocess.html#replacing-shell-pipeline
-+        fp.stdout.close()
-+        # Wait for both format and print command to complete
-+        fp.wait()
-+        pp.wait()
-+        # Remove the temp file
-+        os.unlink(self.printfilename)
++        pp = subprocess.Popen(printargv, stdin=subprocess.PIPE)
++        fp = subprocess.Popen(formatargv, stdin=subprocess.PIPE, stdout=pp.stdin)
++        # Feed the contents of the text area to the format command and wait
++        # for both commands to terminate
++        fp.communicate(input=self.get('1.0', 'end').encode())
++        pp.communicate()
 +        # Notify the user of the outcome of the printing operation
 +        if fp.returncode > 0 or pp.returncode > 0:
 +            tkMessageBox.showerror('Print error', 'Printing failed')
  
      def help(self, whatever=None):
          tkMessageBox.showinfo('Rhinote Help', message='''
-@@ -161,7 +180,9 @@ http://rhinote.tuxfamily.org
+@@ -153,7 +165,6 @@ http://rhinote.tuxfamily.org
+         self.bind('<Control-H>', self.help)
+         self.master = master
+         self.filename = ''
+-        self.printfilename = os.environ['HOME'] + '/.Rhinoteprintfile'
+         self._filetypes = [
+             ('Text/ASCII', '*.txt'),
+             ('Rhinote files', '*.rhi'),
+@@ -161,7 +172,9 @@ http://rhinote.tuxfamily.org
          ]
          # Find print and format commands
          self.printcommand = self.which('lpr')

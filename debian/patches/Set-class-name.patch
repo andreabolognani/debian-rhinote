@@ -13,7 +13,7 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 8f339f9..0bfe690 100644
+index ac1f2e7..e5e3cbe 100644
 --- a/rhinote.py
 +++ b/rhinote.py
 @@ -30,7 +30,7 @@ import subprocess
