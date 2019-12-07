@@ -11,13 +11,13 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 27 insertions(+), 2 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 75a90d5..177acd8 100644
+index badce2b..fafe497 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -82,14 +82,19 @@ class TextWidget(tkinter.Text):
+@@ -84,14 +84,19 @@ class TextWidget(tkinter.Text):
          Rhinote()
  
-     def printfile(self, whatever = None):
+     def printfile(self, whatever=None):
 +        if not self.printcommand:
 +            tkMessageBox.showerror('Print error', 'Print command (lpr) not found')
 +            return
@@ -25,7 +25,7 @@ index 75a90d5..177acd8 100644
 +            tkMessageBox.showerror('Print error', 'Format command (enscript) not found')
 +            return
          # Use a secure temp file for printing
-         f = tempfile.NamedTemporaryFile(prefix = 'Rhinoteprintfile-', delete = False)
+         f = tempfile.NamedTemporaryFile(prefix='Rhinoteprintfile-', delete=False)
          f.write(self.get('1.0', 'end'))
          f.close()
          # 'enscript' formats the text; lpr sends it to the default printer;
@@ -34,9 +34,9 @@ index 75a90d5..177acd8 100644
 -        os.unlink(f.name)
 +        os.system('%s -B --word-wrap %s > %s &' % (self.formatcommand, f.name, self.printcommand))
  
-     def help(self, whatever = None):
-         tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -115,6 +120,23 @@ Free Software distributed under the GNU General Public License
+     def help(self, whatever=None):
+         tkMessageBox.showinfo('Rhinote Help', message='''
+@@ -117,6 +122,23 @@ Free Software distributed under the GNU General Public License
  http://rhinote.tuxfamily.org
  ''')
  
@@ -60,13 +60,13 @@ index 75a90d5..177acd8 100644
      def __init__(self, master, **kw):
          tkinter.Text.__init__(self, master, **kw)
          self.bind('<Control-n>', self.new_window)
-@@ -136,6 +158,9 @@ http://rhinote.tuxfamily.org
-         ('Rhinote files', '*.rhi'),
+@@ -138,6 +160,9 @@ http://rhinote.tuxfamily.org
+             ('Rhinote files', '*.rhi'),
              ('All files', '*'),
-             ]
+         ]
 +        # Find print and format commands
 +        self.printcommand = self.which('lpr')
 +        self.formatcommand = self.which('enscript')
  
+ 
  # make it so:
- if __name__ == '__main__':

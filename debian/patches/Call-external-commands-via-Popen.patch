@@ -13,7 +13,7 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 24 insertions(+), 3 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 177acd8..cd40dca 100644
+index fafe497..ffbf84c 100644
 --- a/rhinote.py
 +++ b/rhinote.py
 @@ -26,6 +26,7 @@ import tkinter.filedialog as tkFileDialog
@@ -22,10 +22,10 @@ index 177acd8..cd40dca 100644
  import tempfile
 +import subprocess
  
+ 
  # the root window:
- def Rhinote():
-@@ -92,9 +93,27 @@ class TextWidget(tkinter.Text):
-         f = tempfile.NamedTemporaryFile(prefix = 'Rhinoteprintfile-', delete = False)
+@@ -94,9 +95,27 @@ class TextWidget(tkinter.Text):
+         f = tempfile.NamedTemporaryFile(prefix='Rhinoteprintfile-', delete=False)
          f.write(self.get('1.0', 'end'))
          f.close()
 -        # 'enscript' formats the text; lpr sends it to the default printer;
@@ -53,15 +53,15 @@ index 177acd8..cd40dca 100644
 +        if fp.returncode > 0 or pp.returncode > 0:
 +            tkMessageBox.showerror('Print error', 'Printing failed')
  
-     def help(self, whatever = None):
-         tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -160,7 +179,9 @@ http://rhinote.tuxfamily.org
-             ]
+     def help(self, whatever=None):
+         tkMessageBox.showinfo('Rhinote Help', message='''
+@@ -162,7 +181,9 @@ http://rhinote.tuxfamily.org
+         ]
          # Find print and format commands
          self.printcommand = self.which('lpr')
 +        self.printargs = []
          self.formatcommand = self.which('enscript')
 +        self.formatargs = ['-B', '--word-wrap', '-o', '-']
  
+ 
  # make it so:
- if __name__ == '__main__':
