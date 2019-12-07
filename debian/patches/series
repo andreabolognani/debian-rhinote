@@ -1,7 +1,6 @@
 Port-to-Python-3.patch
 Simplify-imports.patch
 Fix-flake8-warnings.patch
-Use-secure-temp-file-for-printing.patch
 Make-sure-external-commands-are-available.patch
 Call-external-commands-via-Popen.patch
 Support-lp-along-with-lpr-for-printing.patch

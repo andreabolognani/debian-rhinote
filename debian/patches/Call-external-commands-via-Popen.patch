@@ -13,28 +13,28 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 24 insertions(+), 3 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index fafe497..ffbf84c 100644
+index 376cb2c..3934815 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -26,6 +26,7 @@ import tkinter.filedialog as tkFileDialog
+@@ -25,6 +25,7 @@ import tkinter
+ import tkinter.filedialog as tkFileDialog
  import tkinter.messagebox as tkMessageBox
  import os
- import tempfile
 +import subprocess
  
  
  # the root window:
-@@ -94,9 +95,27 @@ class TextWidget(tkinter.Text):
-         f = tempfile.NamedTemporaryFile(prefix='Rhinoteprintfile-', delete=False)
+@@ -92,9 +93,27 @@ class TextWidget(tkinter.Text):
+         f = open(self.printfilename, 'w')
          f.write(self.get('1.0', 'end'))
-         f.close()
+         f.close
 -        # 'enscript' formats the text; lpr sends it to the default printer;
 -        # enscript's -B option suppresses page headers.
--        os.system('%s -B --word-wrap %s > %s &' % (self.formatcommand, f.name, self.printcommand))
+-        os.system('%s -B --word-wrap %s > %s &' % (self.formatcommand, self.printfilename, self.printcommand))
 +        # Prepare the format command
 +        formatargv = [self.formatcommand]
 +        formatargv.extend(self.formatargs)
-+        formatargv.append(f.name)
++        formatargv.append(self.printfilename)
 +        # Prepare the print command
 +        printargv = [self.printcommand]
 +        printargv.extend(self.printargs)
@@ -47,15 +47,15 @@ index fafe497..ffbf84c 100644
 +        # Wait for both format and print command to complete
 +        fp.wait()
 +        pp.wait()
-+        # Remove the secure temp file
-+        os.unlink(f.name)
++        # Remove the temp file
++        os.unlink(self.printfilename)
 +        # Notify the user of the outcome of the printing operation
 +        if fp.returncode > 0 or pp.returncode > 0:
 +            tkMessageBox.showerror('Print error', 'Printing failed')
  
      def help(self, whatever=None):
          tkMessageBox.showinfo('Rhinote Help', message='''
-@@ -162,7 +181,9 @@ http://rhinote.tuxfamily.org
+@@ -161,7 +180,9 @@ http://rhinote.tuxfamily.org
          ]
          # Find print and format commands
          self.printcommand = self.which('lpr')

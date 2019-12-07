@@ -7,14 +7,14 @@ system, so test for their existence before running them.
 
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
 ---
- rhinote.py | 29 +++++++++++++++++++++++++++--
- 1 file changed, 27 insertions(+), 2 deletions(-)
+ rhinote.py | 28 +++++++++++++++++++++++++++-
+ 1 file changed, 27 insertions(+), 1 deletion(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index badce2b..fafe497 100644
+index 93e2363..376cb2c 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -84,14 +84,19 @@ class TextWidget(tkinter.Text):
+@@ -83,12 +83,18 @@ class TextWidget(tkinter.Text):
          Rhinote()
  
      def printfile(self, whatever=None):
@@ -24,19 +24,17 @@ index badce2b..fafe497 100644
 +        if not self.formatcommand:
 +            tkMessageBox.showerror('Print error', 'Format command (enscript) not found')
 +            return
-         # Use a secure temp file for printing
-         f = tempfile.NamedTemporaryFile(prefix='Rhinoteprintfile-', delete=False)
+         f = open(self.printfilename, 'w')
          f.write(self.get('1.0', 'end'))
-         f.close()
+         f.close
          # 'enscript' formats the text; lpr sends it to the default printer;
          # enscript's -B option suppresses page headers.
--        os.system('enscript -B --word-wrap %s > lpr &' % f.name)
--        os.unlink(f.name)
-+        os.system('%s -B --word-wrap %s > %s &' % (self.formatcommand, f.name, self.printcommand))
+-        os.system('enscript -B --word-wrap $HOME/.Rhinoteprintfile > lpr &')
++        os.system('%s -B --word-wrap %s > %s &' % (self.formatcommand, self.printfilename, self.printcommand))
  
      def help(self, whatever=None):
          tkMessageBox.showinfo('Rhinote Help', message='''
-@@ -117,6 +122,23 @@ Free Software distributed under the GNU General Public License
+@@ -114,6 +120,23 @@ Free Software distributed under the GNU General Public License
  http://rhinote.tuxfamily.org
  ''')
  
@@ -60,7 +58,7 @@ index badce2b..fafe497 100644
      def __init__(self, master, **kw):
          tkinter.Text.__init__(self, master, **kw)
          self.bind('<Control-n>', self.new_window)
-@@ -138,6 +160,9 @@ http://rhinote.tuxfamily.org
+@@ -136,6 +159,9 @@ http://rhinote.tuxfamily.org
              ('Rhinote files', '*.rhi'),
              ('All files', '*'),
          ]

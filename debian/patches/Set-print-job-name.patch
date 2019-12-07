@@ -13,10 +13,10 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 3c0ad43..4862022 100644
+index 1adf4c6..8f339f9 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -181,9 +181,10 @@ http://rhinote.tuxfamily.org
+@@ -180,9 +180,10 @@ http://rhinote.tuxfamily.org
          ]
          # Find print and format commands
          self.printcommand = self.which('lp')

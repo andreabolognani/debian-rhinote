@@ -13,10 +13,10 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 4862022..d8a9325 100644
+index 8f339f9..0bfe690 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -31,7 +31,7 @@ import subprocess
+@@ -30,7 +30,7 @@ import subprocess
  
  # the root window:
  def Rhinote():

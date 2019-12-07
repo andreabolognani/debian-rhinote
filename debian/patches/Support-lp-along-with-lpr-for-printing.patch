@@ -11,10 +11,10 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index ffbf84c..3c0ad43 100644
+index 3934815..1adf4c6 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -86,7 +86,7 @@ class TextWidget(tkinter.Text):
+@@ -85,7 +85,7 @@ class TextWidget(tkinter.Text):
  
      def printfile(self, whatever=None):
          if not self.printcommand:
@@ -23,7 +23,7 @@ index ffbf84c..3c0ad43 100644
              return
          if not self.formatcommand:
              tkMessageBox.showerror('Print error', 'Format command (enscript) not found')
-@@ -180,7 +180,9 @@ http://rhinote.tuxfamily.org
+@@ -179,7 +179,9 @@ http://rhinote.tuxfamily.org
              ('All files', '*'),
          ]
          # Find print and format commands
