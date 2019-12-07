@@ -13,8 +13,8 @@ Vcs-Browser: https://salsa.debian.org/debian/rhinote
 
 Package: rhinote
 Architecture: all
-Depends: python,
-         python-tk,
+Depends: python3,
+         python3-tk,
          enscript,
          cups-client | lpr,
          ${misc:Depends}
