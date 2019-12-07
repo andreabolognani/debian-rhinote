@@ -11,10 +11,10 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 27 insertions(+), 2 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 4618555..8b9f38a 100644
+index 75a90d5..177acd8 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -81,14 +81,19 @@ class TextWidget(Tkinter.Text):
+@@ -82,14 +82,19 @@ class TextWidget(tkinter.Text):
          Rhinote()
  
      def printfile(self, whatever = None):
@@ -36,7 +36,7 @@ index 4618555..8b9f38a 100644
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -114,6 +119,23 @@ Free Software distributed under the GNU General Public License
+@@ -115,6 +120,23 @@ Free Software distributed under the GNU General Public License
  http://rhinote.tuxfamily.org
  ''')
  
@@ -58,9 +58,9 @@ index 4618555..8b9f38a 100644
 +        return path
 +
      def __init__(self, master, **kw):
-         Tkinter.Text.__init__(self, master, **kw)
+         tkinter.Text.__init__(self, master, **kw)
          self.bind('<Control-n>', self.new_window)
-@@ -135,6 +157,9 @@ http://rhinote.tuxfamily.org
+@@ -136,6 +158,9 @@ http://rhinote.tuxfamily.org
          ('Rhinote files', '*.rhi'),
              ('All files', '*'),
              ]

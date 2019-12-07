@@ -13,18 +13,18 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 24 insertions(+), 3 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 8b9f38a..d303497 100644
+index 177acd8..cd40dca 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -25,6 +25,7 @@ import Tkinter
- import tkFileDialog, tkMessageBox
+@@ -26,6 +26,7 @@ import tkinter.filedialog as tkFileDialog
+ import tkinter.messagebox as tkMessageBox
  import os
  import tempfile
 +import subprocess
  
  # the root window:
  def Rhinote():
-@@ -91,9 +92,27 @@ class TextWidget(Tkinter.Text):
+@@ -92,9 +93,27 @@ class TextWidget(tkinter.Text):
          f = tempfile.NamedTemporaryFile(prefix = 'Rhinoteprintfile-', delete = False)
          f.write(self.get('1.0', 'end'))
          f.close()
@@ -55,7 +55,7 @@ index 8b9f38a..d303497 100644
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -159,7 +178,9 @@ http://rhinote.tuxfamily.org
+@@ -160,7 +179,9 @@ http://rhinote.tuxfamily.org
              ]
          # Find print and format commands
          self.printcommand = self.which('lpr')

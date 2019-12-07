@@ -13,15 +13,15 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index e628bb2..503752a 100644
+index d7c4138..4610e13 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -29,7 +29,7 @@ import subprocess
+@@ -30,7 +30,7 @@ import subprocess
  
  # the root window:
  def Rhinote():
--    r = Tkinter.Tk()
-+    r = Tkinter.Tk(className = 'Rhinote')
+-    r = tkinter.Tk()
++    r = tkinter.Tk(className = 'Rhinote')
      r.option_add('*font', '{Helvetica} 11')
      t = TextWidget(r, bg = '#f9f3a9', wrap = 'word', undo = True)
      t.focus_set()

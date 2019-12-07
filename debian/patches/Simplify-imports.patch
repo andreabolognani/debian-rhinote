@@ -11,36 +11,37 @@ Forwarded: Marv Boyes <greyspace@tuxfamily.org>
  1 file changed, 5 insertions(+), 6 deletions(-)
 
 diff --git a/rhinote.py b/rhinote.py
-index 2fba412..8c8cda3 100644
+index fc54c72..b56f938 100644
 --- a/rhinote.py
 +++ b/rhinote.py
-@@ -21,14 +21,13 @@
+@@ -21,15 +21,14 @@
  # along with this program; if not, write to the Free Software
  # Foundation, Inc., 51 Franklin St., Fifth Floor, Boston, MA  02110-1301 USA
  
--from Tkinter import *
-+import Tkinter
- import tkFileDialog, tkMessageBox
+-from tkinter import *
++import tkinter
+ import tkinter.filedialog as tkFileDialog
+ import tkinter.messagebox as tkMessageBox
  import os
 -from os import system
  
  # the root window:
  def Rhinote():
 -    r = Tk()
-+    r = Tkinter.Tk()
++    r = tkinter.Tk()
      r.option_add('*font', '{Helvetica} 11')
      t = TextWidget(r, bg = '#f9f3a9', wrap = 'word', undo = True)
      t.focus_set()
-@@ -38,7 +37,7 @@ def Rhinote():
+@@ -39,7 +38,7 @@ def Rhinote():
      r.mainloop()
  
  # the text widget, and all of its functions:
 -class TextWidget(Text):
-+class TextWidget(Tkinter.Text):
++class TextWidget(tkinter.Text):
  
      def save_file(self, whatever = None):
          if (self.filename == ''):
-@@ -86,7 +85,7 @@ class TextWidget(Text):
+@@ -87,7 +86,7 @@ class TextWidget(Text):
          f.close
          # 'enscript' formats the text; lpr sends it to the default printer;
          # enscript's -B option suppresses page headers.
@@ -49,12 +50,12 @@ index 2fba412..8c8cda3 100644
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -113,7 +112,7 @@ http://rhinote.tuxfamily.org
+@@ -114,7 +113,7 @@ http://rhinote.tuxfamily.org
  ''')
  
      def __init__(self, master, **kw):
 -        Text.__init__(self, master, **kw)
-+        Tkinter.Text.__init__(self, master, **kw)
++        tkinter.Text.__init__(self, master, **kw)
          self.bind('<Control-n>', self.new_window)
          self.bind('<Control-N>', self.new_window)
          self.bind('<Control-o>', self.open_file)
