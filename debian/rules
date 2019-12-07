@@ -32,23 +32,4 @@ clean:
 	rm -f rhinote.1
 	dh_clean
 
-# Rebuild the patches series by looking at the contents of the
-# debian/patches directory.
-#
-# Patches with names starting with D (Debian-specific) should be applied
-# after those with names starting with U (to be forwarded upstream).
-rebuild-patches-series:
-	@( \
-		SERIES=debian/patches/series; \
-		{ \
-			echo "# To rebuild this file, use \`debian/rules $@'"; \
-			for patch in debian/patches/U*.diff debian/patches/D*.diff; \
-			do \
-				test -f "$${patch}" || continue; \
-				patch=$$(basename "$${patch}"); \
-				echo "$${patch}"; \
-			done; \
-		} >"$${SERIES}"; \
-	)
-
-.PHONY: build build-arch build-indep binary binary-arch binary-indep clean rebuild-patches-series
+.PHONY: build build-arch build-indep binary binary-arch binary-indep clean

@@ -1,15 +1,21 @@
-Description: Set class name
- The default class name for Tk application is "Tk".
- .
- This patch sets it to "Rhinote", so the correct application name
- is displayed in such places as the GNOME Shell top bar.
-Author: Andrea Bolognani <eof@kiyuko.org>
+From: Andrea Bolognani <eof@kiyuko.org>
+Date: Wed, 1 Feb 2012 16:24:29 +0100
+Subject: Set class name
+
+The default class name for Tk application is "Tk".
+
+This patch sets it to "Rhinote", so the correct application name
+is displayed in such places as the GNOME Shell top bar.
+
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
-Last-Update: 2012-02-01
-Index: rhinote.git/rhinote.py
-===================================================================
---- rhinote.git.orig/rhinote.py
-+++ rhinote.git/rhinote.py
+---
+ rhinote.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rhinote.py b/rhinote.py
+index e628bb2..503752a 100644
+--- a/rhinote.py
++++ b/rhinote.py
 @@ -29,7 +29,7 @@ import subprocess
  
  # the root window:

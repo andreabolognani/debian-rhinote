@@ -1,13 +1,19 @@
-Description: Support lp along with lpr for printing
- The original printing implementation only supports the lpr
- command; this patch add support for printing with lp as well.
-Author: Andrea Bolognani <eof@kiyuko.org>
+From: Andrea Bolognani <eof@kiyuko.org>
+Date: Wed, 1 Feb 2012 12:31:26 +0100
+Subject: Support lp along with lpr for printing
+
+The original printing implementation only supports the lpr
+command; this patch add support for printing with lp as well.
+
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
-Last-Update: 2012-02-01
-Index: rhinote.git/rhinote.py
-===================================================================
---- rhinote.git.orig/rhinote.py
-+++ rhinote.git/rhinote.py
+---
+ rhinote.py | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/rhinote.py b/rhinote.py
+index d303497..4a38595 100644
+--- a/rhinote.py
++++ b/rhinote.py
 @@ -83,7 +83,7 @@ class TextWidget(Tkinter.Text):
  
      def printfile(self, whatever = None):

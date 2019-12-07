@@ -1,15 +1,21 @@
-Description: Call external commands via Popen
- Use the subprocess.Popen() method instead on relying on the less
- secure os.system() method when calling external commands.
- .
- Notify the user of printing errors as well.
-Author: Andrea Bolognani <eof@kiyuko.org>
+From: Andrea Bolognani <eof@kiyuko.org>
+Date: Wed, 1 Feb 2012 12:22:31 +0100
+Subject: Call external commands via Popen
+
+Use the subprocess.Popen() method instead on relying on the less
+secure os.system() method when calling external commands.
+
+Notify the user of printing errors as well.
+
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
-Last-Update: 2012-02-01
-Index: rhinote.git/rhinote.py
-===================================================================
---- rhinote.git.orig/rhinote.py
-+++ rhinote.git/rhinote.py
+---
+ rhinote.py | 27 ++++++++++++++++++++++++---
+ 1 file changed, 24 insertions(+), 3 deletions(-)
+
+diff --git a/rhinote.py b/rhinote.py
+index 8b9f38a..d303497 100644
+--- a/rhinote.py
++++ b/rhinote.py
 @@ -25,6 +25,7 @@ import Tkinter
  import tkFileDialog, tkMessageBox
  import os

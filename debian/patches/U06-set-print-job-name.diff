@@ -1,15 +1,21 @@
-Description: Set print job name
- When printing from standard input, the job name defaults to "stdin".
- .
- This patch adds some parameters to the lp/lpr call to provide the
- user with a more descriptive name.
-Author: Andrea Bolognani <eof@kiyuko.org>
+From: Andrea Bolognani <eof@kiyuko.org>
+Date: Wed, 1 Feb 2012 12:36:31 +0100
+Subject: Set print job name
+
+When printing from standard input, the job name defaults to "stdin".
+
+This patch adds some parameters to the lp/lpr call to provide the
+user with a more descriptive name.
+
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
-Last-Update: 2012-02-01
-Index: rhinote.git/rhinote.py
-===================================================================
---- rhinote.git.orig/rhinote.py
-+++ rhinote.git/rhinote.py
+---
+ rhinote.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/rhinote.py b/rhinote.py
+index 4a38595..e628bb2 100644
+--- a/rhinote.py
++++ b/rhinote.py
 @@ -178,9 +178,10 @@ http://rhinote.tuxfamily.org
              ]
          # Find print and format commands

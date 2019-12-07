@@ -1,13 +1,19 @@
-Description: Simplify imports
- Importing a whole module using a wildcard is frowned upon, and it
- confuses static analysis tools such as pyflakes.
-Author: Andrea Bolognani <eof@kiyuko.org>
+From: Andrea Bolognani <eof@kiyuko.org>
+Date: Mon, 30 Jan 2012 17:28:43 +0100
+Subject: Simplify imports
+
+Importing a whole module using a wildcard is frowned upon, and it
+confuses static analysis tools such as pyflakes.
+
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
-Last-Update: 2012-01-30
-Index: rhinote.git/rhinote.py
-===================================================================
---- rhinote.git.orig/rhinote.py
-+++ rhinote.git/rhinote.py
+---
+ rhinote.py | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/rhinote.py b/rhinote.py
+index 2fba412..8c8cda3 100644
+--- a/rhinote.py
++++ b/rhinote.py
 @@ -21,14 +21,13 @@
  # along with this program; if not, write to the Free Software
  # Foundation, Inc., 51 Franklin St., Fifth Floor, Boston, MA  02110-1301 USA

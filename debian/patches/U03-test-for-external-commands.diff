@@ -1,13 +1,19 @@
-Description: Make sure external commands are available
- External commands are not guaranteed to be available on the
- system, so test for their existence before running them.
-Author: Andrea Bolognani <eof@kiyuko.org>
+From: Andrea Bolognani <eof@kiyuko.org>
+Date: Wed, 1 Feb 2012 11:33:54 +0100
+Subject: Make sure external commands are available
+
+External commands are not guaranteed to be available on the
+system, so test for their existence before running them.
+
 Forwarded: Marv Boyes <greyspace@tuxfamily.org>
-Last-Update: 2012-02-01
-Index: rhinote.git/rhinote.py
-===================================================================
---- rhinote.git.orig/rhinote.py
-+++ rhinote.git/rhinote.py
+---
+ rhinote.py | 29 +++++++++++++++++++++++++++--
+ 1 file changed, 27 insertions(+), 2 deletions(-)
+
+diff --git a/rhinote.py b/rhinote.py
+index 4618555..8b9f38a 100644
+--- a/rhinote.py
++++ b/rhinote.py
 @@ -81,14 +81,19 @@ class TextWidget(Tkinter.Text):
          Rhinote()
  
@@ -30,7 +36,7 @@ Index: rhinote.git/rhinote.py
  
      def help(self, whatever = None):
          tkMessageBox.showinfo('Rhinote Help', message = '''
-@@ -114,6 +119,23 @@ Free Software distributed under the GNU
+@@ -114,6 +119,23 @@ Free Software distributed under the GNU General Public License
  http://rhinote.tuxfamily.org
  ''')
  
