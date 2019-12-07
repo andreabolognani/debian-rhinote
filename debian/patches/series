@@ -1,7 +1,7 @@
-U01-simplify-imports.diff
-U02-use-secure-printfile.diff
-U03-test-for-external-commands.diff
-U04-use-popen.diff
-U05-support-lp.diff
-U06-set-print-job-name.diff
-U07-set-class-name.diff
+Simplify-imports.patch
+Use-secure-temp-file-for-printing.patch
+Make-sure-external-commands-are-available.patch
+Call-external-commands-via-Popen.patch
+Support-lp-along-with-lpr-for-printing.patch
+Set-print-job-name.patch
+Set-class-name.patch
