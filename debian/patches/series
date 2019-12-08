@@ -6,3 +6,4 @@ Call-external-commands-via-Popen.patch
 Support-lp-along-with-lpr-for-printing.patch
 Set-print-job-name.patch
 Set-class-name.patch
+Fix-window-title.patch

@@ -1,0 +1,24 @@
+From: Andrea Bolognani <eof@kiyuko.org>
+Date: Sun, 8 Dec 2019 19:01:28 +0100
+Subject: Fix window title
+
+After loading or saving a file, the window title is updated to
+show its path; in one situation, however, a spurious closing
+parenthesis would show up as well.
+---
+ rhinote.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rhinote.py b/rhinote.py
+index e5e3cbe..0b5cee9 100644
+--- a/rhinote.py
++++ b/rhinote.py
+@@ -78,7 +78,7 @@ class TextWidget(tkinter.Text):
+             self.delete('1.0', 'end')
+             self.insert('1.0', f2)
+             f.close()
+-            self.master.title('Rhinote %s)' % self.filename)
++            self.master.title('Rhinote %s' % self.filename)
+ 
+     def new_window(self, event):
+         Rhinote()
