@@ -5,7 +5,7 @@ build-arch:
 build-indep: build-stamp
 build-stamp:
 	dh_testdir
-	pandoc -s -w man -o rhinote.1 debian/rhinote.1.markdown
+	rst2man debian/rhinote.1.rst rhinote.1
 	touch $@
 
 binary: binary-arch binary-indep
