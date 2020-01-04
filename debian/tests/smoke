@@ -31,7 +31,7 @@ wait_command()
 
 echo '# Validating test environment...'
 wait_command 'pgrep -ax "Xvfb"' 1 || exit 1
-wait_command 'pgrep -afx "python /usr/bin/rhinote"' 1 || exit 1
+wait_command 'pgrep -afx "python3 /usr/bin/rhinote"' 1 || exit 1
 
 # Setup
 
@@ -46,7 +46,7 @@ wait_command 'xwininfo -root -tree' 0
 
 echo '# Starting rhinote...'
 rhinote >rhinote.log 2>&1 &
-wait_command 'pgrep -afx "python /usr/bin/rhinote"' 0
+wait_command 'pgrep -afx "python3 /usr/bin/rhinote"' 0
 
 # Test
 
@@ -57,8 +57,8 @@ rc=$?
 # Teardown
 
 echo '# Stopping rhinote...'
-pkill -efx "python /usr/bin/rhinote"
-wait_command 'pgrep -afx "python /usr/bin/rhinote"' 1
+pkill -efx "python3 /usr/bin/rhinote"
+wait_command 'pgrep -afx "python3 /usr/bin/rhinote"' 1
 
 echo '# Stopping Xvfb...'
 pkill -ex "Xvfb"
