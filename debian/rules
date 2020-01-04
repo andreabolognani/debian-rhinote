@@ -1,35 +1,12 @@
 #!/usr/bin/make -f
 
-build: build-arch build-indep
-build-arch:
-build-indep: build-stamp
-build-stamp:
-	dh_testdir
+%:
+	dh $@
+
+override_dh_auto_build:
 	rst2man debian/rhinote.1.rst rhinote.1
-	touch $@
+	dh_auto_build
 
-binary: binary-arch binary-indep
-binary-arch: build-arch
-binary-indep: build-indep
-	dh_testdir
-	dh_testroot
-	dh_prep
-	dh_install
-	dh_installchangelogs
-	dh_installdocs
-	dh_installman
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp
+override_dh_auto_clean:
 	rm -f rhinote.1
-	dh_clean
-
-.PHONY: build build-arch build-indep binary binary-arch binary-indep clean
+	dh_auto_clean
