@@ -10,3 +10,8 @@ override_dh_auto_build:
 override_dh_auto_clean:
 	rm -f rhinote.1
 	dh_auto_clean
+
+override_dh_installchangelogs:
+	# The upstream changelog doesn't contain any information that would
+	# be relevant to end users
+	dh_installchangelogs --exclude=ChangeLog
