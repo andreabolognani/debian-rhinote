@@ -1,3 +1,25 @@
+rhinote (0.7.4-4) unstable; urgency=medium
+
+  * Python 3
+    + Port Rhinote to Python 3 (Closes: #945732)
+
+  * Patches
+    + Add Fix-window-title.patch
+      - Addresses a small cosmetic issue
+
+  * debhelper
+    + Switch to compat level 12
+    + Switch to the dh sequencer
+
+  * Other
+    + Update Standards-Version to 4.5.0
+      - Stop installing upstream changelog
+      - Install upstream release notes
+    + Rewrite man page from Markdown to reStructuredText
+      - Removes build dependency on pandoc (and thus Haskell)
+
+ -- Andrea Bolognani <eof@kiyuko.org>  Sun, 16 Feb 2020 00:53:06 +0100
+
 rhinote (0.7.4-3) unstable; urgency=low
 
   * debhelper
