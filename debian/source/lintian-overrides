@@ -1,0 +1,3 @@
+# This HTML file was actually hand-written, so there is no other
+# source for it. We don't include it in the binary package anyway.
+rhinote source: source-is-missing [rhinote-doc.html]
