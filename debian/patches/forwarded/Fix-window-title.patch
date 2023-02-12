@@ -5,6 +5,8 @@ Subject: Fix window title
 After loading or saving a file, the window title is updated to
 show its path; in one situation, however, a spurious closing
 parenthesis would show up as well.
+
+Forwarded: yes
 ---
  rhinote.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

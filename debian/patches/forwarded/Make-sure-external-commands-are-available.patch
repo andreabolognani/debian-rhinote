@@ -5,7 +5,7 @@ Subject: Make sure external commands are available
 External commands are not guaranteed to be available on the
 system, so test for their existence before running them.
 
-Forwarded: Marv Boyes <greyspace@tuxfamily.org>
+Forwarded: yes
 ---
  rhinote.py | 28 +++++++++++++++++++++++++++-
  1 file changed, 27 insertions(+), 1 deletion(-)

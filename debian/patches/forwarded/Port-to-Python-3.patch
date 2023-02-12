@@ -6,6 +6,8 @@ Python 2 is going to be EOL soon, so we need to use the current
 version of the language going forward; thankfully, getting the
 application to run on Python 3 only requires tweaking a couple
 of imports.
+
+Forwarded: yes
 ---
  rhinote.py | 7 ++++---
  1 file changed, 4 insertions(+), 3 deletions(-)

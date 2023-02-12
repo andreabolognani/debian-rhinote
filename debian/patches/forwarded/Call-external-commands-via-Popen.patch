@@ -8,7 +8,7 @@ secure os.system() method when calling external commands.
 This also allows us to stop using an insecure temporary file and
 notify the user if printing failed.
 
-Forwarded: Marv Boyes <greyspace@tuxfamily.org>
+Forwarded: yes
 ---
  rhinote.py | 27 ++++++++++++++++++++-------
  1 file changed, 20 insertions(+), 7 deletions(-)

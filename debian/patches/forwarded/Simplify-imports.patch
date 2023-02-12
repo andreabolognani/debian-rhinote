@@ -5,7 +5,7 @@ Subject: Simplify imports
 Importing a whole module using a wildcard is frowned upon, and it
 confuses static analysis tools such as pyflakes.
 
-Forwarded: Marv Boyes <greyspace@tuxfamily.org>
+Forwarded: yes
 ---
  rhinote.py | 11 +++++------
  1 file changed, 5 insertions(+), 6 deletions(-)

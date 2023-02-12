@@ -9,6 +9,8 @@ The only remaining issues reported by the tool are
 
 but I think addressing them would actually make the code less
 readable, so I decided not to.
+
+Forwarded: yes
 ---
  rhinote.py | 35 +++++++++++++++++++----------------
  1 file changed, 19 insertions(+), 16 deletions(-)
